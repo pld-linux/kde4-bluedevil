@@ -1,8 +1,5 @@
 
-# TODO: needs cleaning BRs and Rs.
-
-%define		qtver	4.6.3
-%define		kde4ver	4.5.1
+%define		kde4ver	4.4.5
 %define		orgname	bluedevil
 
 Summary:	KDE Bluetooth framework
@@ -16,21 +13,14 @@ Group:		X11/Applications
 Source0:	%{orgname}-%{version}.tar.bz2
 # Source0-md5:	e4fa4e634e60314f2529a43236b110ac
 URL:		http://projects.ufocoders.com/projects/bluedevil
-BuildRequires:	QtCore-devel >= %{qtver}
-BuildRequires:	QtDBus-devel >= %{qtver}
-BuildRequires:	QtGui-devel >= %{qtver}
-BuildRequires:	QtNetwork-devel >= %{qtver}
-BuildRequires:	QtSvg-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.8.0
-BuildRequires:	gettext-devel
-BuildRequires:	kde4-kdebase-workspace-devel >= %{kde4ver}
 BuildRequires:	kde4-kdelibs-devel >= %{kde4ver}
 BuildRequires:	libbluedevil-devel
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
-BuildRequires:	shared-desktop-ontologies-devel >= 0.2
-BuildRequires:	soprano-devel >= 2.4.0.1
+BuildRequires:	shared-mime-info
+Requires:	bluez
 Requires:	obex-data-server
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -63,8 +53,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
-
-#%find_lang %{orgname} --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
