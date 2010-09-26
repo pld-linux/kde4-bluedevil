@@ -6,13 +6,13 @@ Summary:	KDE Bluetooth framework
 Summary(pl.UTF-8):	Podstawowe środowisko KDE Bluetooth
 Name:		kde4-bluedevil
 Version:	1.0
-Release:	0.beta3.1
+Release:	0.rc4.1
 License:	GPL
 Group:		X11/Applications
 # get git: git clone git://gitorious.org/bluedevil/bluedevil.git
-Source0:	%{orgname}-%{version}.tar.bz2
-# Source0-md5:	e4fa4e634e60314f2529a43236b110ac
-URL:		http://projects.ufocoders.com/projects/bluedevil
+Source0:	http://www.afiestas.org/files/%{orgname}-v%{version}rc4-1.tgz
+# Source0-md5:	c967bce0edd20c2937db5071c7b735df
+URL:		http://www.afiestas.org/
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	kde4-kdelibs-devel >= %{kde4ver}
@@ -31,7 +31,7 @@ allowing to browse the files in a cell phone from you favorite file
 browser.
 
 %prep
-%setup -q -n %{orgname}-%{version}
+%setup -q -n %{orgname}-rc4-1
 
 %build
 install -d build
@@ -76,6 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/bluetooth.protocol
 %{_datadir}/kde4/services/obexftp.protocol
 %{_datadir}/kde4/services/kded/bluedevil.desktop
+%{_datadir}/kde4/services/kded/obexftpdaemon.desktop
 %{_desktopdir}/kde4/*
 %{_datadir}/dbus-1/services/org.kde.BlueDevil.Service.service
 %{_libdir}/libbluedevilaction.so
