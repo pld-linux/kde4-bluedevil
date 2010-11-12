@@ -21,6 +21,7 @@ BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	shared-mime-info
 Requires:	bluez
 Requires:	obex-data-server
+Obsoletes:	kde4-kdebluetooth
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
