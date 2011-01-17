@@ -1,5 +1,4 @@
-# TODO:
-#    Package /usr/share/locale/ca/LC_MESSAGES/bluedevil.mo and other *.mo 
+
 %define		kde4ver	4.5
 %define		orgname	bluedevil
 
@@ -15,6 +14,7 @@ Source0:	http://www.afiestas.org/files/bluedevil/bluedevil-%{version}.tar.bz2
 URL:		http://www.afiestas.org/
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.8.0
+BuildRequires:	gettext-devel
 BuildRequires:	kde4-kdelibs-devel >= %{kde4ver}
 BuildRequires:	libbluedevil-devel >= 1.8
 BuildRequires:	qt4-build >= %{qtver}
@@ -55,13 +55,15 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
+%find_lang %{orgname}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files
+%files -f %{orgname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/bluedevil-audio
 %attr(755,root,root) %{_bindir}/bluedevil-authorize
