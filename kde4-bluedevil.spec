@@ -1,16 +1,17 @@
-
+# TODO:
+#    Package /usr/share/locale/ca/LC_MESSAGES/bluedevil.mo and other *.mo 
 %define		kde4ver	4.5
 %define		orgname	bluedevil
 
 Summary:	KDE Bluetooth framework
 Summary(pl.UTF-8):	Podstawowe środowisko KDE Bluetooth
 Name:		kde4-bluedevil
-Version:	1.0
-Release:	1
+Version:	1.0.1
+Release:	0.1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://media.ereslibre.es/2010/11/bluedevil-v%{version}.tar.bz2
-# Source0-md5:	b20d9c234adfe3c498f5577a88cd2f03
+Source0:	http://www.afiestas.org/files/bluedevil/bluedevil-%{version}.tar.bz2
+# Source0-md5:	4558dd739a58978b93d513a45d6e6b35
 URL:		http://www.afiestas.org/
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.8.0
@@ -31,7 +32,7 @@ allowing to browse the files in a cell phone from you favorite file
 browser.
 
 %prep
-%setup -q -n %{orgname}-v%{version}
+%setup -q -n %{orgname}-%{version}
 
 %build
 install -d build
