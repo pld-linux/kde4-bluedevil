@@ -1,15 +1,16 @@
 
-%define		kde4ver	4.5
+%define		kde4ver	4.5.5
+%define		qtver	4.7.1
 %define		orgname	bluedevil
 
 Summary:	KDE Bluetooth framework
 Summary(pl.UTF-8):	Podstawowe środowisko KDE Bluetooth
 Name:		kde4-bluedevil
 Version:	1.0.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
-Source0:	http://www.afiestas.org/files/bluedevil/bluedevil-%{version}.tar.bz2
+Source0:	http://www.afiestas.org/files/bluedevil/%{orgname}-%{version}.tar.bz2
 # Source0-md5:	4558dd739a58978b93d513a45d6e6b35
 URL:		http://www.afiestas.org/
 BuildRequires:	automoc4 >= 0.9.88
@@ -19,6 +20,7 @@ BuildRequires:	kde4-kdelibs-devel >= %{kde4ver}
 BuildRequires:	libbluedevil-devel >= 1.8
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
+BuildRequires:	rpmbuild(macros) >= 1.600
 BuildRequires:	shared-mime-info
 Requires:	bluez
 Requires:	obex-data-server
@@ -38,12 +40,6 @@ browser.
 install -d build
 cd build
 %cmake \
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DSYSCONF_INSTALL_DIR=%{_sysconfdir} \
-	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
-%if "%{_lib}" == "lib64"
-	-DLIB_SUFFIX=64 \
-%endif
 	../
 
 %{__make}
