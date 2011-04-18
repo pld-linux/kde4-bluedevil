@@ -6,12 +6,12 @@
 Summary:	KDE Bluetooth framework
 Summary(pl.UTF-8):	Podstawowe środowisko KDE Bluetooth
 Name:		kde4-bluedevil
-Version:	1.0.4
+Version:	1.1
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/stable/bluedevil/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	016e8b048bd834548a436fb0440667a9
+# Source0-md5:	240151ff99b81f630de51fa9f8230198
 URL:		http://www.afiestas.org/
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.8.0
@@ -62,13 +62,13 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{orgname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/bluedevil-audio
-%attr(755,root,root) %{_bindir}/bluedevil-authorize
-%attr(755,root,root) %{_bindir}/bluedevil-confirmmodechange
+%attr(755,root,root) %{_libdir}/kde4/libexec/bluedevil-authorize
+%attr(755,root,root) %{_libdir}/kde4/libexec/bluedevil-confirmmodechange
 %attr(755,root,root) %{_bindir}/bluedevil-helper
 %attr(755,root,root) %{_bindir}/bluedevil-input
 %attr(755,root,root) %{_bindir}/bluedevil-monolithic
-%attr(755,root,root) %{_bindir}/bluedevil-requestconfirmation
-%attr(755,root,root) %{_bindir}/bluedevil-requestpin
+%attr(755,root,root) %{_libdir}/kde4/libexec/bluedevil-requestconfirmation
+%attr(755,root,root) %{_libdir}/kde4/libexec/bluedevil-requestpin
 %attr(755,root,root) %{_bindir}/bluedevil-sendfile
 %attr(755,root,root) %{_bindir}/bluedevil-wizard
 %{_datadir}/apps/bluedevil
@@ -85,6 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/obexftp.protocol
 %{_datadir}/kde4/services/kded/bluedevil.desktop
 %{_datadir}/kde4/services/kded/obexftpdaemon.desktop
+%{_datadir}/kde4/services/bluedevilsendfile.desktop
 %{_desktopdir}/kde4/bluedevil-audio.desktop
 %{_desktopdir}/kde4/bluedevil-input.desktop
 %{_desktopdir}/kde4/bluedevil-monolithic.desktop
@@ -102,3 +103,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/kded_obexftpdaemon.so
 %attr(755,root,root) %{_libdir}/kde4/kio_bluetooth.so
 %attr(755,root,root) %{_libdir}/kde4/kio_obexftp.so
+%attr(755,root,root) %{_libdir}/kde4/bluetoothfiletiemaction.so
