@@ -51,6 +51,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
+# remove unsupported locales
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/{sr@ijekavian,sr@ijekavianlatin}
+
 %find_lang %{orgname}
 
 %clean
