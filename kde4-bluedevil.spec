@@ -1,4 +1,4 @@
-%define		kdever	4.7.1
+%define		kdever	4.7.2
 %define		qtver	4.7.4
 %define		orgname	bluedevil
 %define		state	stable
@@ -6,12 +6,12 @@
 Summary:	KDE Bluetooth framework
 Summary(pl.UTF-8):	Podstawowe środowisko KDE Bluetooth
 Name:		kde4-bluedevil
-Version:	1.2.1
+Version:	1.2.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{state}/bluedevil/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	e5f53fa306f11732f18eaed141cbd51b
+# Source0-md5:	f1b2b932f3e1e52b13b0bad515bf4125
 URL:		http://www.afiestas.org/
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.8.0
