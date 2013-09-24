@@ -11,7 +11,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{state}/bluedevil/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	c6f91f0b34f683495cffa735df617c4e
+# Source0-md5:	a43e644fe75bd090c47c060dcbdfdb27
 URL:		http://www.afiestas.org/
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.8.0
@@ -34,7 +34,7 @@ allowing to browse the files in a cell phone from you favorite file
 browser.
 
 %prep
-%setup -q -n %{orgname}-%{version}
+%setup -q -n %{orgname}-v%{version}
 
 %build
 install -d build
