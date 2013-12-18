@@ -3,27 +3,31 @@
 %define		orgname	bluedevil
 %define		state	stable
 
+# git archive --format=tar --remote=git://anongit.kde.org/bluedevil bluez5  \
+# --prefix=bluedevil-%{version}/ | bzip2 >libbluedevil-%{version}-%{snap}.tar.bz2
+%define		snap	20131218
+
 Summary:	KDE Bluetooth framework
 Summary(pl.UTF-8):	Podstawowe środowisko KDE Bluetooth
 Name:		kde4-bluedevil
-Version:	1.3.2
+Version:	2.0.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.kde.org/pub/kde/%{state}/bluedevil/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	a43e644fe75bd090c47c060dcbdfdb27
+#Source0:	ftp://ftp.kde.org/pub/kde/%{state}/bluedevil/%{version}/src/%{orgname}-%{version}.tar.xz
+Source0:	%{orgname}-%{version}-%{snap}.tar.bz2
+# Source0-md5:	5030d655be2b1d0b4ec5d083b6881c67
 URL:		http://www.afiestas.org/
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	gettext-devel
 BuildRequires:	kde4-kdelibs-devel >= %{kdever}
-BuildRequires:	libbluedevil-devel >= 1.9.3
+BuildRequires:	libbluedevil-devel >= 2.0
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.600
 BuildRequires:	shared-mime-info
-Requires:	bluez
-Requires:	obex-data-server
+Requires:	bluez >= 5.0
 Obsoletes:	kde4-kdebluetooth
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -34,7 +38,7 @@ allowing to browse the files in a cell phone from you favorite file
 browser.
 
 %prep
-%setup -q -n %{orgname}-v%{version}
+%setup -q -n %{orgname}-%{version}
 
 %build
 install -d build
@@ -51,10 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
-# remove unsupported locales
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/{sr@ijekavian,sr@ijekavianlatin}
-
-%find_lang %{orgname}
+#%find_lang %{orgname}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -62,10 +63,10 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files -f %{orgname}.lang
+#%files -f %{orgname}.lang
+%files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/bluedevil-audio
-%attr(755,root,root) %{_bindir}/bluedevil-helper
 %attr(755,root,root) %{_bindir}/bluedevil-input
 %attr(755,root,root) %{_bindir}/bluedevil-monolithic
 %attr(755,root,root) %{_bindir}/bluedevil-network-dun
@@ -100,7 +101,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/bluedevil-network-panu.desktop
 %{_desktopdir}/kde4/bluedevil-sendfile.desktop
 %{_desktopdir}/kde4/bluedevil-wizard.desktop
-%{_datadir}/dbus-1/services/org.kde.BlueDevil.Service.service
 %attr(755,root,root) %{_libdir}/libbluedevilaction.so
 %attr(755,root,root) %{_libdir}/kde4/bluedevilaudioactionplugin.so
 %attr(755,root,root) %{_libdir}/kde4/bluedevilinputactionplugin.so
