@@ -21,7 +21,7 @@ Source0:	%{orgname}-%{version}-%{snap}.tar.bz2
 URL:		http://www.afiestas.org/
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.8.0
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	kde4-kdelibs-devel >= %{kdever}
 BuildRequires:	libbluedevil-devel >= 2.0
 BuildRequires:	qt4-build >= %{qtver}
