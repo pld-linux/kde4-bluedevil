@@ -11,7 +11,7 @@ Summary:	KDE Bluetooth framework
 Summary(pl.UTF-8):	Podstawowe środowisko KDE Bluetooth
 Name:		kde4-bluedevil
 Version:	2.0.0
-Release:	0.%{snap}.1
+Release:	0.%{snap}.2
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
